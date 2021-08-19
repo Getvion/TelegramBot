@@ -9,29 +9,29 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 bot.start((ctx) => ctx.reply(`Привет, ${ctx.message.from.first_name}`));
 bot.help((ctx) => ctx.reply(text.commands));
 
+
 bot.command('pohui', (ctx) => {
    try {
-      ctx.reply('Боже, ну как же похуй! Просто АБ-СО-ЛЮТ-НО!');
-      // ctx.replyWithVoice('./voiceMsgs/pohui1.ogg'); - вот тут должен отправлять голосовое
+      ctx.replyWithVoice('AwACAgIAAxkBAAPIYR6rdYzkgKylQL5qzv-GLSIehXIAAhcGAAKyvVlJa5htnNkD7dsgBA');
    } catch (e) {
       console.error(e);
    }
 });
 bot.command('pohui2', (ctx) => {
    try {
-      ctx.reply('Типы, мне реально похуй на этого типа, я его даже не видел ни разу. ');
-      // ctx.replyWithVoice('./voiceMsgs/pohui2.ogg'); - вот тут должен отправлять голосовое
+      ctx.replyWithVoice('AwACAgIAAxkBAAPLYR6sYnRcBdQSiFWOuTSCKgRihB4AAn8GAALEuihJR8_bLfLitpUgBA');
    } catch (e) {
       console.error(e);
    }
 });
 bot.command('stop', (ctx) => {
    try {
-      ctx.reply('Блять, ёбаный черт, просто остановись, пожалуйста! Не пиши этой хуеты, мне стыдно читать это говно.');
-      // ctx.replyWithVoice('./voiceMsgs/stop.ogg'); - вот тут должен отправлять голосовое
+      ctx.replyWithVoice('AwACAgIAAxkBAAPOYR6sjvHy0HraVdVQHUaHQwj21WoAAi0AA7xESEiHGJqqX_KK6SAE');
    } catch (e) {
       console.error(e);
    }
 });
 
 bot.launch();
+
+// npm run dev - запуск сервера
