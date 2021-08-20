@@ -2,13 +2,23 @@ const {
    Telegraf
 } = require('telegraf');
 require('dotenv').config();
-const text = require('./const');
+
+const commands = `
+/start - Перезапустить бота
+/help - Помощь
+/pohui - Боже, ну как же похуй!
+/pohui2 -  Мне реально похуй на этого типа 
+/stop - Ёбаный черт, просто остановись
+`;
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start((ctx) => ctx.reply(`Привет, ${ctx.message.from.first_name}`));
-bot.help((ctx) => ctx.reply(text.commands));
+bot.help((ctx) => ctx.reply(commands));
 
+bot.on('voice', (ctx) => {
+   return console.log(ctx.update.message.voice);
+});
 
 bot.command('pohui', (ctx) => {
    try {
