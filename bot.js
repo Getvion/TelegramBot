@@ -13,8 +13,16 @@ const commands = `
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
+let botTrigger = {
+   pohui: [/(^похуй)/i, /(^pohui)/]
+};
+
 bot.start((ctx) => ctx.reply(`Привет, ${ctx.message.from.first_name}`));
 bot.help((ctx) => ctx.reply(commands));
+
+bot.hears(botTrigger.pohui, (ctx) => {
+   ctx.replyWithVoice('AwACAgIAAxkBAAPIYR6rdYzkgKylQL5qzv-GLSIehXIAAhcGAAKyvVlJa5htnNkD7dsgBA')
+});
 
 bot.on('voice', (ctx) => {
    return console.log(ctx.update.message.voice);
