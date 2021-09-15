@@ -4,30 +4,33 @@ const {
 require('dotenv').config();
 
 const commands = `
-/start - Перезапустить бота
+/start - Бот поздоровается ;-)
 /help - Помощь
 /pohui - Боже, ну как же похуй!
-/pohui2 -  Мне реально похуй на этого типа 
-/stop - Ёбаный черт, просто остановись
+/pohui2 -  Мне реально похуй на этого типа.
+/stop - Ёбаный черт, просто остановись!
 `;
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 let botTrigger = {
-   pohui: [/(^похуй)/i, /(^pohui)/]
+   pohui: [/(похуй)/i, /(pohui)/]
 };
 
 bot.start((ctx) => ctx.reply(`Привет, ${ctx.message.from.first_name}`));
 bot.help((ctx) => ctx.reply(commands));
 
+// Реакция на триггер
 bot.hears(botTrigger.pohui, (ctx) => {
-   ctx.replyWithVoice('AwACAgIAAxkBAAPIYR6rdYzkgKylQL5qzv-GLSIehXIAAhcGAAKyvVlJa5htnNkD7dsgBA')
+   ctx.replyWithVoice('AwACAgIAAxkBAAPIYR6rdYzkgKylQL5qzv-GLSIehXIAAhcGAAKyvVlJa5htnNkD7dsgBA');
 });
 
+// Вывод в консоль id сообщения для удобства добавления 
 bot.on('voice', (ctx) => {
    return console.log(ctx.update.message.voice);
 });
 
+// Команды боту
 bot.command('pohui', (ctx) => {
    try {
       ctx.replyWithVoice('AwACAgIAAxkBAAPIYR6rdYzkgKylQL5qzv-GLSIehXIAAhcGAAKyvVlJa5htnNkD7dsgBA');
