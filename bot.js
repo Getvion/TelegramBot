@@ -53,6 +53,21 @@ bot.command('stop', (ctx) => {
    }
 });
 
+
+
+// bot.command('stop', (ctx) => {
+//    trySendAudio('AwACAgIAAxkBAAPOYR6sjvHy0HraVdVQHUaHQwj21WoAAi0AA7xESEiHGJqqX_KK6SAE');
+// });
+
+// function trySendAudio(voiceMessageId) {
+//    console.log(ctx, voiceMessageId);
+//    try {
+//       ctx.replyWithVoice(voiceMessageId);
+//    } catch (e) {
+//       console.error(e);
+//    }
+// }
+
 bot.launch();
 
 // npm run dev - запуск сервера
