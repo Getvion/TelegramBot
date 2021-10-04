@@ -14,7 +14,7 @@ const commands = `
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 let botTrigger = {
-   pohui: [/(похуй)/i, /(pohui)/]
+   pohui: [/(похуй)/i, /(пох)/i]
 };
 
 bot.start((ctx) => ctx.reply(`Привет, ${ctx.message.from.first_name}`));
@@ -52,7 +52,6 @@ bot.command('stop', (ctx) => {
       console.error(e);
    }
 });
-
 
 
 // bot.command('stop', (ctx) => {
