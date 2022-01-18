@@ -12,9 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "telegraf": "^4.4.1"
+    "telegraf": "^4.6.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.15"
   }
 }

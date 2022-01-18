@@ -12,22 +12,44 @@ const commands = `
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 let botTrigger = {
-  pohui: [/(похуй)/g],
+  pohui: [/(похуй)/gi],
+  nigger: [/(нигер)/gi, /(нига)/gi],
 };
 
-let dataArray = [];
+let niggerWord = {
+  n: 'CgACAgQAAxkBAAIDdWHloW1klWAEWjvL4qtT9TdP2efnAAJPAgACfguEUrYImf33KDf0IwQ',
+  i: 'CgACAgQAAxkBAAIDdmHloXp_uGE7RJ-ajBGOzyUTCZ0cAAIZAwACA-q1UvAYQCb4jeUBIwQ',
+  g: 'CgACAgQAAxkBAAIDd2HloZK7SODgZSicWRhSEEYrTj5jAAIuAgACF9qUUjtT3a4PHlIsIwQ',
+  e: 'CgACAgQAAxkBAAIDeGHlokeI6jPA7FEHYzhu5OnVUZFaAAI-AgACc3GUUs4kbycYydpGIwQ',
+  r: 'CgACAgQAAxkBAAIDeWHlonRjBV--E-cvLIWaigoBdpEtAAJAAgACWmCVUuIZ6R3YTtuOIwQ',
+};
 
 // Команды боту
 bot.start((ctx) => ctx.reply(`Привет, ${ctx.message.from.first_name}`));
 bot.help((ctx) => ctx.reply(commands));
 
-// Реакция на триггер
+// Реакция на триггеры
 bot.hears(botTrigger.pohui, (ctx) => {
   ctx.replyWithVoice('AwACAgIAAxkBAAPIYR6rdYzkgKylQL5qzv-GLSIehXIAAhcGAAKyvVlJa5htnNkD7dsgBA');
 });
 
+bot.hears(botTrigger.nigger, (ctx) => {
+  const writeLetter = (letter, delay) => {
+    setTimeout(() => {
+      ctx.replyWithAnimation(letter);
+    }, delay);
+  };
+
+  writeLetter(niggerWord.n, 0);
+  writeLetter(niggerWord.i, 100);
+  writeLetter(niggerWord.g, 200);
+  writeLetter(niggerWord.g, 300);
+  writeLetter(niggerWord.e, 400);
+  writeLetter(niggerWord.r, 500);
+});
+
 // Вывод в консоль id сообщения для удобства добавления новых сообщений
-bot.on('voice', (ctx) => {
+bot.on('message', (ctx) => {
   return console.log(ctx.update.message.voice);
 });
 
